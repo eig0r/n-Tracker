@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.myfamilytracker.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2017 03:15:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="family, tracker, gps, phone, mobile, app, application, Android, iPhone, tablet, iPad">
+    <meta name="description" content="Keep your family and loved ones safe by being able to locate them at any time. Get notified when the enter or leave any location.">
+    <title>n-Tracker App - Track Android and Apple iOS devices</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link href="css/main.css" rel="stylesheet">
+	 <link href='../fonts.googleapis.com/cssae12.css?family=Open+Sans:400,300,700&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/map.css" rel="stylesheet" media="all">
+    <link href="css/main.css" rel="stylesheet" media="all">
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+    	$(document).on('click', '#the-download', function () {
+			//console.log("Clicked Download");
+
+			$(".alert").hide();
+
+			var message_text = "Choose a platform:";
+			//console.log("message: " + message_text);
+			 // set the message to display: none to fade it in later.
+		    var message = $('<div class="alert alert-error note-message" style="display: none;">');
+		    // a close button
+		    var close = $('<button type="button" class="close" data-dismiss="alert">&times</button>');
+		    var android_button = $('<br /><br /><button type="button" class="btn btn-lg btn-primary" data-dismiss="alert" onclick="window.open(\'https://play.google.com/store/apps/details?id=com.fibercode.familytracker\'); return false;" onkeypress="window.open(\'https://play.google.com/store/apps/details?id=com.fibercode.familytracker\'); return false;">Android</button><span style="	padding-left: 20px;"> </span><button type="button" class="btn btn-lg btn-primary" data-dismiss="alert" onclick="window.open(\'https://itunes.apple.com/us/app/family-tracker/id349880412\'); return false;" onkeypress="window.open(\'https://itunes.apple.com/us/app/family-tracker/id349880412\'); return false;">iOS</button>');
+		    message.append(close); // adding the close button to the message
+
+		    message.append(message_text); // adding the message
+		    message.append(android_button);
+		    // add the message element to the body, fadein, wait 5secs, fadeout
+		    message.appendTo($('body')).fadeIn(300).delay(5000).fadeOut(500);
+		});
+    	$(document).on('click', '#howto-1', function () {
+
+			$(".alert").hide();
+
+			var message_text = "Choose a platform:";
+			//console.log("message: " + message_text);
+			 // set the message to display: none to fade it in later.
+		    var message = $('<div class="alert alert-error note-message" style="display: none;">');
+		    // a close button
+		    var close = $('<button type="button" class="close" data-dismiss="alert">&times</button>');
+		    var android_button = $('<br /><br /><button type="button" class="btn btn-lg btn-primary" data-dismiss="alert" onclick="window.open(\'how-to-track-via-device.php\',\'_self\',false); return false;" onkeypress="window.open(\'how-to-track-via-device.php\',\'_self\',false); return false;">Android</button><span style="	padding-left: 20px;"> </span><button type="button" class="btn btn-lg btn-primary" data-dismiss="alert" onclick="window.open(\'https://itunes.apple.com/us/app/family-tracker/id349880412\',\'_self\',false); return false;" onkeypress="window.open(\'https://itunes.apple.com/us/app/family-tracker/id349880412\',\'_self\',false); return false;">iOS</button>');
+		    message.append(close); // adding the close button to the message
+
+		    message.append(message_text); // adding the message
+		    message.append(android_button);
+		    // add the message element to the body, fadein, wait 5secs, fadeout
+		    message.appendTo($('body')).fadeIn(300).delay(5000).fadeOut(500);
+		});
+
+		$(document).on('click', '#feature-android-and-ios', function () {
+			showMessage("Android & iOS", "n-Tracker allows Android users to track iPhone users and vice versa.<br /><br />The multiple platform support and integration is at the core of our product.");
+		});
+
+		$(document).on('click', '#feature-stealth-ping', function () {
+			showMessage("Stealth Ping", "Stealth Ping forces an automatic location update of the remote device without the person being notified.");
+		});
+
+		$(document).on('click', '#feature-battery', function () {
+			showMessage("Battery", "n-Tracker is extremely energy efficient and has vitually no impact on battery life.<br /><br />The application does not constantly run in the background. It only activates when it needs to update the location.");
+		});
+
+		/*
+		$(document).on('click', '#feature-geofencing', function () {
+			showMessage("Geofencing", "Geofencing is an upcoming Family Tracker feature, which will allow you to set up areas on the map for any of the devices you track.<br /><br />Once the targeted device enters and/or exits that area, you will get notified immediately.");
+		});
+		*/
+
+		$(document).on('click', '#feature-worldwide', function () {
+			showMessage("Worldwide", "n-Tracker works worldwide.<br /><br />There are no restrictions to continents and borders.");
+		});
+
+		$(document).on('click', '#feature-breadcrumbs', function () {
+			showMessage("Breadcrumbs", "n-Tracker provides the ability to see the historical location data (breadcrumbs) for everyone you track.<br /><br />You can share or archive this information by exporting the breadcrumbs info into .GPX and .KML file formats.<br /><br />The Breadcrumbs feature requires a subscription to the <a href=\"features-pro.php\">Pro Features</a>.");
+		});
+
+		$(document).on('click', '#feature-location', function () {
+			showMessage("Location", "n-Tracker Uses all the possible location methods: GPS, Cell Tower Triangulation and Wi-Fi (if enabled).<br /><br />That provides the best possible balance between accuracy and dependability.");
+		});
+
+    });
+
+    function showMessage (title, the_message_text) {
+
+    		$(".alert").hide();
+
+    		var message = $('<div class="alert alert-error note-message" style="display: none;">');
+		    // a close button
+		    var close = $('<button type="button" class="close" data-dismiss="alert">&times</button>');
+		    message.append(close); // adding the close button to the message
+		    if (title) {
+		    	message.append('<div class="text-center"><h3>' + title + '</h3></div>');
+		    }
+		    message.append('<div>' + the_message_text + '</div>'); // adding the message
+		    message.append('</div>')
+		     // add the message element to the body, fadein, wait 30secs, fadeout
+		    message.appendTo($('body')).fadeIn(300).delay(30000).fadeOut(500);
+    }
+
+
+    </script>
+  </head>
+  <body>
+
+
+
+    <div class="navbar-wrapper">
+      <div class="container-fluid">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-responsive" alt="" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse navbar-right collapse">
+              <ul class="nav navbar-nav">
+			          <li data-target=".navbar-collapse" class="active"><a class="page-scroll" href="index.html">Home</a></li>
+			          <li data-target=".navbar-collapse"><a class="page-scroll" href="#screen-sec">About</a></li>
+                <li data-target=".navbar-collapse"><a class="page-scroll" href="#features-sec">Features</a></li>
+
+                <li data-target=".navbar-collapse"><a class="page-scroll" href="#service-sec">Services</a></li>
+                <li data-target=".navbar-collapse"><a class="page-scroll" href="#howto-sec">How-To</a></li>
+                <li data-target=".navbar-collapse"><a class="page-scroll" href="#pricing-sec">Pricing</a></li>
+
+                <li data-target=".navbar-collapse"><a class="page-scroll" href="#contact-sec">Contact</a></li>
+  <li data-target=".navbar-collapse"><a class="page-scroll" href="http://104.200.28.74:8082">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div><!-- end of nav -->
+
+	 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+		  <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item slide1 active">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Protect your family</h1>
+              <p><div class="btn btn-lg btn-primary" id="the-download" role="button">Download</div></p>
+            </div>
+          </div>
+        </div>
+
+		  <div class="item slide3">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Take control</h1>
+              <p><div class="btn btn-lg btn-primary" id="the-download" role="button">Download</div></p>
+            </div>
+          </div>
+        </div>
+
+				<div class="item slide2">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Give your Family Peace of Mind</h1>
+              <p><div class="btn btn-lg btn-primary" id="the-download" role="button">Download</div></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+
+    <div id="screen-sec" class="screen-sec">
+ 		<div class="container">
+ 		  <div class="row">
+ 			 <div class="col-md-12">
+ 				<h2>About</h2>
+
+ 				<!--  <div class="row sc-slider">
+ 					 <div class="col-md-3">
+ 						<a href="" title=""></a>
+ 					 </div>
+
+ 					 <div class="col-md-6">
+ 						<img src="img/sc1.png" class="img-responsive" alt="" />
+ 					 </div>
+
+ 					 <div class="col-md-3">
+ 						<a href="" title=""></a>
+ 					 </div>
+ 				  </div>-->
+
+ 				  <div id="screen-slider" class="carousel slide" data-ride="carousel">
+
+ 					 <div class="carousel-inner" role="listbox">
+
+ 						<div class="item active">
+ 						  <img data-src="img/sc1.png" alt="" src="img/sc1.png" data-holder-rendered="true">
+ 						</div>
+
+ 						<div class="item">
+ 						  <img data-src="img/howto/sshot-website-breadcrumbs.png" alt="" src="img/howto/sshot-website-breadcrumbs.png" data-holder-rendered="true">
+ 						</div>
+
+ 						<div class="item">
+ 						  <img data-src="img/howto/sshot-balloon-tap.png" alt="" src="img/howto/sshot-balloon-tap.png" data-holder-rendered="true">
+ 						</div>
+
+ 						<div class="item">
+ 						  <img data-src="img/howto/sshot-breadcrumbs.png" alt="" src="img/howto/sshot-breadcrumbs.png" data-holder-rendered="true">
+ 						</div>
+
+ 						<div class="item">
+ 						  <img data-src="img/howto/sc1q.png" alt="" src="img/howto/sc1q.png" data-holder-rendered="true">
+ 						</div>
+
+            <div class="item">
+ 						  <img data-src="img/howto/tt.png" alt="" src="img/howto/tt.png" data-holder-rendered="true">
+ 						</div>
+
+ 					 </div>
+ 					 <a class="left carousel-control" href="#screen-slider" role="button" data-slide="prev">
+ 						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+ 						<span class="sr-only">Previous</span>
+ 					 </a>
+ 					 <a class="right carousel-control" href="#screen-slider" role="button" data-slide="next">
+ 						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+ 						<span class="sr-only">Next</span>
+ 					 </a>
+ 				  </div>
+           <div class="col-md-10 col-md-offset-1">
+            <p class="text-center">
+            n-Tracker runs on your( android / IoS ) device that allows you to  view your family location on a map , and receive alerts when your loved ones (arrive & left) at home, school or work.
+            </p>
+           </div>
+ 				</div>
+ 		  </div>
+ 		</div>
+  </div><!-- end of container about-sec -->
+
+
+  <div id="features-sec" class="features-sec">
+   <div class="container">
+     <div class="row">
+      <div class="col-md-12">
+       <h2><span>Features</span></h2>
+
+       <div class="row features-list">
+         <div class="col-md-2" id="feature-android-and-ios">
+          <div class="ft-box ic1">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Android & iOS</a>
+         </div>
+         <div class="col-md-2" id="feature-stealth-ping">
+          <div class="ft-box ic2">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Stealth ping</a>
+         </div>
+         <div class="col-md-2" id="feature-web-service">
+          <div class="ft-box ic3">
+           <a href="http://104.200.28.74:8082"><span></span></a>
+          </div>
+          <a href="http://104.200.28.74:8082" title="" class="text-center">Web service</a>
+         </div>
+         <div class="col-md-2" id="feature-battery">
+          <div class="ft-box ic4">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Battery</a>
+         </div>
+         <div class="col-md-2" id="feature-geofencing">
+          <div class="ft-box ic5">
+           <a href="features-geofencing.html"><span></span></a>
+          </div>
+          <a href="features-geofencing.html" title="" class="text-center">Geofencing</a>
+         </div>
+         <div class="col-md-2" id="feature-worldwide">
+          <div class="ft-box ic6">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Worldwide</a>
+         </div>
+
+       </div><!-- end of feature list row 1-->
+
+       <div class="row features-list">
+         <div class="col-md-2 col-md-offset-4"  id="feature-breadcrumbs">
+          <div class="ft-box ic7">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Breadcrumbs</a>
+         </div>
+         <div class="col-md-2"  id="feature-location">
+          <div class="ft-box ic8">
+           <a><span></span></a>
+           <!--<a href="" title=""><span></span></a>-->
+          </div>
+          <a title="" class="text-center">Location</a>
+         </div>
+
+
+       </div><!-- end of feature list row 2 -->
+
+
+
+
+      </div>
+     </div>
+   </div>
+  </div><!-- end of container features-sec -->
+
+
+
+
+   <div id="service-sec" class="container service-sec">
+    <div class="row">
+      <div class="col-md-12">
+       <h2 ><span>Services</span></h2>
+
+       <div class="row howto-three">
+         <div class="col-md-4">
+           <a href="family-locator.html" title="">
+             <img src="img/family.png" class="img-responsive" alt="" />
+           </a>
+           <a href="how-to-track-via-web.html" title="" class="text-center">
+           Family Locator
+           </a>
+
+         </div>
+
+        <div class="col-md-4">
+          <a href="ChieldSafety.html" title="">
+            <img src="img/ChieldSafety.png" class="img-responsive" alt="" />
+          </a>
+          <a href="how-to-track-via-web.html" title="" class="text-center">
+          Child Safety
+          </a>
+
+        </div>
+
+        <div class="col-md-4">
+          <a href="emergency-preparedness.html" title="">
+            <img src="img/emergancy.png" class="img-responsive" alt="" />
+          </a>
+          <a href="emergency-preparedness.html" title="" class="text-center">
+           Emergency Preparedness
+          </a>
+
+        </div>
+
+        <div class="col-md-4">
+          <a href="find-my-phone.html" title="">
+            <img src="img/findmyphone.png" class="img-responsive" alt="" />
+          </a>
+          <a href="find-my-phone.html" title="" class="text-center">
+           Find My Phone
+          </a>
+
+        </div>
+
+
+        <div class="col-md-4">
+          <a href="gps-tracking.html" title="">
+            <img src="img/GPSTracker.png" class="img-responsive" alt="" />
+          </a>
+          <a href="gps-tracking.html" title="" class="text-center">
+           GPS Tracker
+          </a>
+
+        </div>
+
+
+        <div class="col-md-4">
+          <a href="technical-support.html" title="">
+            <img src="img/technicalSupport.png" class="img-responsive" alt="" />
+          </a>
+          <a href="technical-support.html" title="" class="text-center">
+           Technical Support
+          </a>
+
+        </div>
+       </div>
+
+       <br />
+      </div>
+    </div>
+  </div><!-- end of container  Services sec -->
+
+
+
+
+
+   <div id="howto-sec" class="howto-sec">
+    <div class="row">
+      <div class="col-md-12">
+       <h2 class="text-center"><span>How-To-Use</span></h2>
+
+       <div class="row howto-three">
+
+         <div class="col-md-4">
+           <a href="how-to-viewer.html" title="">
+  <img src="img/howto-1.png" class="img-responsive" alt="" />
+           </a>
+           <a href="how-to-client.html" title="" class="text-center">
+            n-Tracker Viewer on mobile device
+           </a>
+
+         </div>
+
+
+
+
+        <div class="col-md-4">
+          <a href="how-to-track-via-web.html" title="">
+            <img src="img/howto-2.png" class="img-responsive" alt="" />
+          </a>
+          <a href="how-to-track-via-web.html" title="" class="text-center">
+           n-Tracker Control on web
+          </a>
+
+        </div>
+
+        <div class="col-md-4">
+          <a href="how-to-client.html" title="">
+            <img src="img/howto-3.png" class="img-responsive" alt="" />
+          </a>
+          <a href="how-to-client.html" title="" class="text-center">
+           n-Tracker Client on mobile device
+          </a>
+
+        </div>
+       </div>
+
+       <br />
+      </div>
+    </div>
+   </div><!-- end of container howto-sec -->
+
+
+	 <div id="pricing-sec" class="pricing-sec">
+		<div class="container">
+		  <div class="row">
+			 <div class="col-md-12">
+				<h2><span>Pricing</span></h2>
+
+				<div class="pricing-table">
+
+
+
+
+				  <div class="pr1 blue-part">
+					 <h4 class="text-center">Free</h4>
+					 <div class="pr-dark">
+						<span class="price text-center">0.00 EGP </span>
+<span class="month text-center">24 hour Demo  Account with one user</span>
+					 </div>
+					 <div class="pr-info">
+
+						<p class="text-center">Online tracking via a browser</p>
+
+						<p class="text-center">Track users with iPhones, iPads and Android devices</p>
+
+						<p class="text-center">Worldwide</p>
+            <p class="text-center">Account include </br>( Viewer App / web Control / one client app )</p>
+
+					 </div>
+					 <div class="pr-bottom">
+
+             <a class="btn btn-default center-block" href="RequestPage.html" role="button">GET STARTED</a>
+
+					 </div>
+				  </div><!-- end of pr1 -->
+
+
+				  <div class="pr1"><!--<div class="pr1 blue-part">-->
+					 <h4 class="text-center">iPhone</h4>
+					 <div class="pr-dark">
+						<span class="price text-center">150 EGP</span>
+            <span class="month text-center">Per Month</span>
+					 </div>
+					 <div class="pr-info">
+
+
+						<p class="text-center">Online tracking via a browser</p>
+
+						<p class="text-center">Track users with iPhones, iPads and Android devices</p>
+
+						<p class="text-center">Worldwide</p>
+            <p class="text-center">Account include </br>( Viewer App / web Control / one client app )</p>
+
+					 </div>
+					 <div class="pr-bottom">
+             <a class="btn btn-default center-block" href="RequestPage.html" role="button">GET STARTED</a>
+					 </div>
+				  </div><!-- end of pr1 -->
+
+
+				  <div class="pr1 blue-part">
+					 <h4 class="text-center">Android</h4>
+					 <div class="pr-dark">
+						<span class="price text-center">100 EGP</span>
+						<span class="month text-center">Per Month</span>
+					 </div>
+					 <div class="pr-info">
+
+
+						<p class="text-center">Online tracking via a browser</p>
+
+						<p class="text-center">Track users with iPhones, iPads and Android devices</p>
+
+						<p class="text-center">Worldwide</p>
+            <p class="text-center">Account include </br>( Viewer App / web Control / one client app )</p>
+
+					 </div>
+					 <div class="pr-bottom">
+             <a class="btn btn-default center-block" href="RequestPage.html" role="button">GET STARTED</a>
+					 </div>
+				  </div><!-- end of pr1 -->
+
+
+				</div><!-- end of pricing table -->
+
+
+			 </div>
+		  </div>
+		</div>
+	 </div><!-- end of container pricing-sec -->
+
+
+
+
+
+
+
+
+
+	 <!--
+	 <div id="map-sec" class="container-fluid map-sec">
+		<div class="row">
+		  <div class="col-md-12">
+
+			 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d46944.56308573802!2d23.344202742480455!3d42.66060961133789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sbg!2sbg!4v1417646470822" width="100%" height="430" frameborder="0" style="border:0"></iframe>
+
+		  </div>
+		</div>
+	 </div><!-- end of container map-sec -->
+
+
+
+	 	<div id="contact-sec" class="container-fluid contact-sec">
+		<div class="row">
+		  <div class="col-md-6 col-md-offset-3">
+			 <h2 class="text-center">Contact</h2>
+
+
+
+
+			 <p class="text-center">
+				We are excited to hear from you!
+				<br><br>
+				Please fill in the contact form below and our staff will respond to you shortly.
+				</p>
+
+			  <ul>
+				<li class="so1"><a href="https://www.facebook.com/Tracker-128264121151900"></a></li>
+				<li class="so2"><a href="#"></a></li>
+				<li class="so3"><a href="#"></a></li>
+				<li class="so4"><a href="#"></a></li>
+			 </ul>
+
+			 <form role="form" method="POST" action="file:///home/eigor/Desktop/Work/n-Tracker-V0.1/Web-Site/Devolpment/n-Tracker/nTracker/contactus.php">
+				<div class="form-group">
+				  <input type="text" class="form-control" name="Name" placeholder="Name" required>
+				</div>
+
+				<div class="form-group">
+				  <input type="email" class="form-control" name="Email" placeholder="Email" required>
+				</div>
+
+				<textarea class="form-control" rows="3" name="Message" placeholder="Message" required></textarea>
+
+				<br />
+
+				<script src="../www.google.com/recaptcha/api.js"></script>
+            <div class="g-recaptcha" data-sitekey="6LfMqwMTAAAAAKZL-MiGvE8_frf-qCZLUWtH_ThQ"></div>
+				<br />
+
+				<button type="submit" class="btn btn-default">Submit</button>
+
+
+
+
+
+
+
+			 </form>
+
+		  </div>
+		</div>
+	 </div><!-- end of container contact-sec -->	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright © 2017 LogSat Software LLC. All rights reserved | <a href="privacy-policy.html">Privacy Policy</a></p>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	 <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+  </body>
+
+<!-- Mirrored from www.myfamilytracker.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2017 03:15:37 GMT -->
+</html>
